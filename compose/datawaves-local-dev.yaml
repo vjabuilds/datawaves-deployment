@@ -9,7 +9,7 @@ services:
     - ./redis.conf:/usr/local/etc/redis/redis.conf
     command: redis-server /usr/local/etc/redis/redis.conf --save 60 1 --loglevel warning
   auth:
-    image: datawaves-auth:latest
+    image: docker.io/vjabuilds/datawaves-auth:latest
     user: root
     volumes:
     - ./private.pem:/work/private.pem
@@ -27,7 +27,7 @@ services:
     - POSTGRES_USER=datawaves
     - POSTGRES_PASSWORD=test.123
   experimenter:
-    image: datawaves-experimenter:latest
+    image: docker.io/vjabuilds/datawaves-experimenter:latest
     user: root
     volumes:
     - ./publickey.pem:/work/publickey.pem
